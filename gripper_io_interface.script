@@ -1,0 +1,71 @@
+# Returns false if gripper is absent, not activated, or in motion
+def gripper_is_waiting():
+ return get_digital_in(8)
+end
+
+# Grip detection - something has prevented the gripper fully closing
+def gripper_object_detected():
+ return get_digital_in(9) and not gripper_is_waiting()
+end
+
+# Power up gripper
+def gripper_power_on():
+ set_tool_voltage(24)
+end
+
+# Power down gripper
+def gripper_power_off():
+ set_tool_voltage(0)
+end
+
+# Needed before gripper can be communicated with
+def gripper_activate():
+ gripper_power_on()
+ sleep(4)
+
+ # Low, Low
+ set_digital_out(8,False)
+ set_digital_out(9,False)
+ sleep(0.011)
+ 
+ # High, -
+ set_digital_out(8,True)
+ sleep(0.011)
+ 
+ # Low, -
+ set_digital_out(8,False)
+ sleep(0.011)
+ 
+ # -, High
+ set_digital_out(9,True)
+ sleep(0.011)
+ 
+ # -, Low
+ set_digital_out(9,False)
+ sleep(0.011)
+ 
+ # Return when the gripper has successfully activated
+ while not gripper_is_waiting():
+  sleep(.01)
+ end
+end
+
+# Open gripper
+def gripper_open():
+ set_digital_out(8,True)
+end
+
+# Close gripper
+def gripper_close():
+ set_digital_out(8,False)
+end
+
+# Set gripper to high force and speed
+def gripper_set_high_force():
+ set_digital_out(9,False)
+end
+
+# Set gripper to low force and speed
+def gripper_set_low_force():
+ set_digital_out(9,True)
+end
