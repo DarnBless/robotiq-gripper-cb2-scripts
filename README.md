@@ -8,7 +8,7 @@ To use the functions, include `gripper_io_interface.script` in the _BeforeStart_
 ## Presets
 The I/O coupling does not allow a full range of control over the grippers, instead only choosing between one of four preset states. These states can be reprogrammed by connecting the coupling to a PC.
 
-For ease of use, these scripts assume that the presets in the coupling follow [the pattern of the default presets](https://dof.robotiq.com/discussion/1704/new-wrist-connect-kits-for-ur-cb-series#Comment_5175), and define functions like `gripper_open()` rather than `gripper_preset_1()`. Generic preset commands could quickly be added in future.
+For ease of use, these scripts assume that the presets in the coupling follow [the pattern of the default presets](https://dof.robotiq.com/discussion/1704/new-wrist-connect-kits-for-ur-cb-series#Comment_5175), and define functions like `gripper_open()` rather than `gripper_preset_1()`. Generic preset commands could quickly be added in future, see issue #1.
 
 ## List of functions
 | Function | Explanation |
