@@ -2,6 +2,8 @@
 Defines functions for controlling the Robotiq Gripper through a CB-series I/O coupling. Assumes the presets programmed on the I/O coupling follow the pattern of the default settings.
 
 ## Summary of usage
+| Command | Explanation |
+| -- | -- |
 | `gripper_activate()` | Must be run before the grippers are used, and any time they have been powered down. Activation will cause the fingers to move. |
 | `gripper_open()` | Open the grippers. |
 | `gripper_close()` | Close the grippers. |
